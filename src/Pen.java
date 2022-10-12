@@ -6,59 +6,73 @@ public class Pen {
     private float carga = 100;
     private boolean tampada;
 
-    // Criando método Construtor que deve ter o mesmo nome da Classe.
-    public void Pen(){
 
-    }
-
-    //Setter and getter para Modelo
-    public String getModelo(){
-        return this.modelo;
-    }
-    public void setModelo(String m){
-        this.modelo = m;
+    // Construct Method
+    public Pen(String modelo, String cor, float ponta) {
+        this.modelo = modelo;
+        this.cor = cor;
+        this.ponta = ponta;
+        this.tampar();
     }
 
-    //Setter and getter para Cor
-    public String getCor(){
-        return this.cor;
-    }
-    public void setCor(String c){
-        this.cor = c;
+    // Getter and setter for modelo
+    public String getModelo() {
+        return modelo;
     }
 
-    //Setter and getter para Ponta
-    public float getPonta(){
-        return this.ponta;
-    }
-    public void setPonta(float p){
-        this.ponta = p;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
-    //Setter and getter para Carga
-    public float getCarga(){
-        return this.carga;
-    }
-    public void setCarga(float ca){
-        this.carga = ca;
+    //Getter and setter for cor
+    public String getCor() {
+        return cor;
     }
 
-    //Setter and getter para Tampada
-    public boolean getTampada(){
-        return this.tampada;
-    }
-    public void setTampada(Boolean t){
-        this.tampada = t;
+    public void setCor(String cor) {
+        this.cor = cor;
     }
 
+    //Getter and setter for ponta
+    public float getPonta() {
+        return ponta;
+    }
+
+    public void setPonta(float ponta) {
+        this.ponta = ponta;
+    }
+
+
+    //Getter and setter for carga
+    public float getCarga() {
+        return carga;
+    }
+
+    public void setCarga(float carga) {
+        this.carga = carga;
+    }
+
+
+    //is? and setter for tampada
+    public boolean isTampada() {
+        return tampada;
+    }
+
+    public void setTampada(boolean tampada) {
+        this.tampada = tampada;
+    }
+
+
+    //Method to demonstrate the pen status
     public void status(){
         System.out.println("Modelo: " + this.getModelo());
-//        System.out.println("Uma caneta " + this.cor);
+        System.out.println("Uma caneta " + this.cor);
         System.out.println("Ponta: " + this.getPonta());
 //        System.out.println("Carga: " + this.carga);
-//        System.out.println("Está tampada?: " + this.tampada);
+        System.out.println("Está tampada?: " + this.tampada);
     }
 
+    //Method to write with the object Pen
     public void escrever(){
         if (this.tampada) {
             System.out.println("ERRO!! A caneta " + this.cor + " está tampada.");
@@ -66,17 +80,20 @@ public class Pen {
             System.out.println("ERRO!! A caneta " + this.cor + " está sem tinta.");
         } else {
             System.out.println("Escrevendo com a caneta " + this.cor + ".");
-            carga = (int) (carga - carga * 0.05);
+            this.carga = (int) (this.carga - this.carga * 0.05);
             System.out.println("Carga atual da caneta: "+ this.cor +" é de " + this.carga);
         }
     }
 
-    public void tampar(){
+    //Method to close the object Pen
+    public void tampar() {
         System.out.println("Tampando a caneta " + this.cor + ".");
         this.tampada = true;
     }
 
-    public void destampar(){
+
+    //Method to open the object Pen
+    public void destampar() {
         System.out.println("Destampando a caneta " + this.cor + ".");
         this.tampada = false;
     }
